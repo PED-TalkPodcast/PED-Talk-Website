@@ -117,5 +117,68 @@
       menuBtn.textContent = "☰";
     }));
   </script>
+
+
+<section id="automatic-podcast" style="max-width:900px;margin:40px auto;padding:20px;">
+  <h2>🎙️ Latest PED-Talk Episodes</h2>
+  <p>Listen to our latest conversations, stories and lessons.</p>
+  <div id="podcast-episodes">Loading episodes...</div>
+</section>
+
+<script>
+(async function () {
+  const container = document.getElementById("podcast-episodes");
+
+  try {
+    const response = await fetch("./episodes.json");
+    if (!response.ok) throw new Error("Episode catalogue unavailable");
+
+    const data = await response.json();
+    const episodes = data.episodes || [];
+
+    if (!episodes.length) {
+      container.textContent = "New episodes will appear here soon.";
+      return;
+    }
+
+    container.innerHTML = "";
+
+    episodes.forEach(function (episode) {
+      const card = document.createElement("article");
+      card.style.cssText =
+        "padding:18px;margin:18px 0;border:1px solid #d8e5dc;border-radius:14px;";
+
+      const title = document.createElement("h3");
+      title.textContent = episode.title || "PED-Talk Episode";
+      card.appendChild(title);
+
+      if (episode.description) {
+        const description = document.createElement("p");
+        description.textContent = episode.description.replace(/<[^>]*>/g, "").slice(0, 220);
+        card.appendChild(description);
+      }
+
+      if (episode.audio) {
+        const player = document.createElement("audio");
+        player.controls = true;
+        player.preload = "none";
+        player.src = episode.audio;
+        player.style.width = "100%";
+        card.appendChild(player);
+      } else {
+        const message = document.createElement("p");
+        message.textContent = "Audio player is not available for this episode.";
+        card.appendChild(message);
+      }
+
+      container.appendChild(card);
+    });
+  } catch (error) {
+    container.textContent =
+      "We couldn't load episodes right now. Please try again later.";
+    console.error(error);
+  }
+})();
+</script>
 </body>
 </html>
