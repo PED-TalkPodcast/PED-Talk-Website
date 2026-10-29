@@ -456,5 +456,18 @@ navLinks.querySelectorAll("a").forEach(link => {
 
 loadEpisodes();
 </script>
+
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register(
+        "/PED-Talk-Website/service-worker.js"
+      ).catch(error => {
+        console.error("Service worker registration failed:", error);
+      });
+    });
+  }
+</script>
+
 </body>
 </html>
