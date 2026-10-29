@@ -1,0 +1,79 @@
+
+name: Sync PED-Talk Podcast Episodes
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get website files
+        uses: actions/checkout@v4
+
+      - name: Fetch podcast episodes
+        run: |
+          python - <<'PY'
+          import json
+          import urllib.request
+          import xml.etree.ElementTree as ET
+          from datetime import datetime, timezone
+
+          feed_url = "https://anchor.fm/s/11831bbb8/podcast/rss"
+
+          request = urllib.request.Request(
+              feed_url,
+              headers={"User-Agent": "PED-Talk-Website/1.0"}
+          )
+
+          with urllib.request.urlopen(request, timeout=30) as response:
+              root = ET.fromstring(response.read())
+
+          channel = root.find("channel")
+          episodes = []
+
+          for item in channel.findall("item"):
+              enclosure = item.find("enclosure")
+              artwork = item.find("{http://www.itunes.com/dtds/podcast-1.0.dtd}image")
+              description = item.find("description")
+              published = item.find("pubDate")
+
+              episodes.append({
+                  "title": item.findtext("title", "Untitled episode"),
+                  "description": item.findtext("description", ""),
+                  "audio": enclosure.get("url", "") if enclosure is not None else "",
+                  "link": item.findtext("link", ""),
+                  "published": published.text if published is not None else "",
+                  "image": (
+                      artwork.get("href", "")
+                      if artwork is not None
+                      else ""
+                  )
+              })
+
+          data = {
+              "updated": datetime.now(timezone.utc).isoformat(),
+              "episodes": episodes
+          }
+
+          with open("episodes.json", "w", encoding="utf-8") as file:
+              json.dump(data, file, ensure_ascii=False, indent=2)
+
+          print(f"Found {len(episodes)} episodes.")
+          PY
+
+      - name: Save updated episode catalogue
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add episodes.json
+          git diff --cached --quiet || (
+            git commit -m "Update podcast episode catalogue" &&
+            git push
+          )
