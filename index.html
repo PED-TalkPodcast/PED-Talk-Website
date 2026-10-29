@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102c22">
+  <meta name="description" content="PED-Talk by Anagkazo Media — real conversations for brighter days. Explore conversations on relationships, family, friends, faith and personal growth.">
+  <title>PED-Talk | Anagkazo Media</title>
+  <style>
+    :root{--green:#163c2d;--deep:#0b1d16;--lime:#b7d58a;--cream:#f6f4ec;--paper:#fffdf7;--ink:#17231d;--muted:#68736b;--line:#dfe4d9;--white:#fff}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+    header{background:var(--deep);color:var(--white);position:sticky;top:0;z-index:10;border-bottom:1px solid #ffffff1b}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:11px;font-weight:850;letter-spacing:-.04em;font-size:1.18rem}.brand-mark{width:38px;height:38px;border-radius:13px;background:var(--lime);color:var(--deep);display:grid;place-items:center;font-weight:950;font-size:1.08rem}.brand small{display:block;color:#b9c9bd;font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;font-weight:700;margin-top:-3px}
+    nav{display:flex;align-items:center;gap:26px;font-size:.9rem;color:#e1e8e1}nav a:hover{color:var(--lime)}.nav-cta,.button{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:999px;padding:12px 18px;background:var(--lime);color:var(--deep);font-weight:800;border:0;cursor:pointer;font-size:.9rem}.menu-btn{display:none;background:none;border:1px solid #ffffff45;color:white;border-radius:10px;padding:8px 11px;font-size:1.1rem}
+    .hero{background:var(--deep);color:var(--white);padding:82px 0 88px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:480px;height:480px;border-radius:50%;right:-100px;top:-200px;background:radial-gradient(circle,#426a4c88 0,transparent 68%);pointer-events:none}
+    .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:55px;position:relative;z-index:1}.eyebrow{display:inline-flex;align-items:center;gap:9px;text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;font-weight:850;color:var(--lime)}.eyebrow:before{content:"";width:24px;height:2px;background:var(--lime)}
+    h1{font-size:clamp(3rem,7vw,5.8rem);line-height:.99;letter-spacing:-.075em;margin:20px 0 24px;max-width:680px}h1 em{font-style:normal;color:var(--lime)}.hero p{color:#c9d5cc;font-size:1.08rem;max-width:530px;margin:0 0 30px}.hero-actions{display:flex;flex-wrap:wrap;gap:12px}.button.outline{background:transparent;border:1px solid #ffffff4c;color:white}.hero-note{font-size:.8rem;color:#aabbb0;margin-top:22px}
+    .art-card{min-height:380px;border-radius:28px;padding:28px;background:linear-gradient(145deg,#264f3b,#10291e 68%);border:1px solid #ffffff22;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 24px 60px #0003;transform:rotate(1.5deg)}.art-top{display:flex;justify-content:space-between;align-items:center;color:#d4e2d5;font-size:.75rem;text-transform:uppercase;letter-spacing:.12em}.sound-bars{height:115px;display:flex;align-items:center;justify-content:center;gap:7px}.sound-bars span{width:8px;border-radius:20px;background:var(--lime);height:var(--h);opacity:var(--o,1)}.art-title{font-size:clamp(2.5rem,5vw,4rem);font-weight:900;line-height:.92;letter-spacing:-.07em}.art-title span{color:var(--lime)}.art-bottom{display:flex;justify-content:space-between;align-items:end;color:#c6d5c8;font-size:.8rem}.circle-mark{border:1px solid #b7d58a;border-radius:50%;width:52px;height:52px;display:grid;place-items:center;color:var(--lime);font-size:1.4rem}
+    section{padding:78px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:30px}.kicker{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:#50715a;font-weight:900}.section-head h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.04;letter-spacing:-.06em;margin:8px 0 0}.section-head p{max-width:420px;color:var(--muted);margin:0}.episodes{background:var(--paper)}.episode-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.episode{background:white;border:1px solid var(--line);border-radius:19px;overflow:hidden;transition:transform .2s,box-shadow .2s}.episode:hover{transform:translateY(-4px);box-shadow:0 14px 30px #122c1a0d}.episode-cover{height:175px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;background:var(--green);color:white;position:relative;overflow:hidden}.episode-cover:after{content:"";position:absolute;width:170px;height:170px;border:1px solid #ffffff2b;border-radius:50%;right:-40px;bottom:-75px;box-shadow:0 0 0 20px #ffffff09,0 0 0 40px #ffffff06}.episode-cover.alt{background:#4e392b}.episode-cover.light{background:#dfe8d5;color:var(--deep)}.ep-label{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;font-weight:850;opacity:.8;position:relative;z-index:1}.ep-big{font-size:2rem;line-height:.98;letter-spacing:-.065em;font-weight:900;max-width:250px;position:relative;z-index:1}.episode-body{padding:20px}.episode-body h3{font-size:1.15rem;letter-spacing:-.03em;margin:0 0 8px}.episode-body p{font-size:.9rem;color:var(--muted);margin:0 0 16px}.text-link{font-weight:850;font-size:.86rem;color:#315c3f}.text-link span{font-size:1.1rem;margin-left:5px}.notice{margin-top:22px;padding:14px 17px;border-radius:12px;background:#f1f4eb;color:#657065;font-size:.82rem}
+    .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:65px;align-items:center}.about-panel{background:var(--green);border-radius:24px;padding:32px;color:white;min-height:300px;display:flex;flex-direction:column;justify-content:space-between}.about-panel .big-quote{font-size:4.5rem;color:var(--lime);line-height:.7}.about-panel p{font-size:1.55rem;font-weight:750;line-height:1.25;letter-spacing:-.04em}.about-panel small{color:#c6d7c8}.about-copy h2{font-size:clamp(2.2rem,4vw,3.4rem);line-height:1.02;letter-spacing:-.065em;margin:10px 0 20px}.about-copy p{color:var(--muted)}.pill-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}.pill{padding:8px 12px;border:1px solid var(--line);border-radius:99px;font-size:.82rem;font-weight:700;background:#fffaf0}
+    .listen{background:#e7eddf}.listen-box{background:var(--deep);color:white;border-radius:26px;padding:clamp(28px,5vw,55px);display:grid;grid-template-columns:1fr auto;align-items:center;gap:30px}.listen h2{font-size:clamp(2.1rem,4vw,3.5rem);letter-spacing:-.065em;line-height:1.02;margin:10px 0 14px}.listen p{color:#c6d4c8;max-width:550px;margin:0}.listen .button{white-space:nowrap}
+    footer{background:var(--deep);color:white;padding:34px 0}.footer-row{display:flex;justify-content:space-between;align-items:center;gap:20px}.footer-row p{margin:5px 0 0;color:#aebfb2;font-size:.8rem}.footer-links{display:flex;gap:18px;flex-wrap:wrap;font-size:.84rem;color:#d3dfd5}.footer-links a:hover{color:var(--lime)}.tiny{font-size:.75rem;color:#94a79a;margin-top:22px}
+    @media(max-width:800px){.hero-grid,.about-grid{grid-template-columns:1fr;gap:35px}.art-card{min-height:300px;transform:none}.episode-grid{grid-template-columns:repeat(2,1fr)}.section-head{align-items:start;flex-direction:column}.listen-box{grid-template-columns:1fr}.listen .button{justify-self:start}}
+    @media(max-width:580px){.wrap{width:min(100% - 28px,1120px)}.nav{height:67px}.menu-btn{display:block}nav{display:none;position:absolute;top:67px;left:0;right:0;background:var(--deep);padding:18px 20px 24px;flex-direction:column;align-items:stretch;gap:17px;border-top:1px solid #ffffff20}nav.open{display:flex}.nav-cta{display:none}.hero{padding:60px 0 62px}.hero-grid{gap:32px}h1{font-size:3.45rem}.art-card{min-height:280px;padding:22px}.episode-grid{grid-template-columns:1fr}.episode-cover{height:190px}.section-head h2{font-size:2.45rem}section{padding:60px 0}.footer-row{align-items:start;flex-direction:column}.footer-links{gap:14px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="PED-Talk home"><span class="brand-mark">P</span><span>PED-Talk<small>by Anagkazo Media</small></span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav id="navLinks"><a href="#episodes">Episodes</a><a href="#about">About us</a><a href="#themes">Our conversations</a><a href="#listen">Listen</a></nav>
+      <a class="nav-cta" href="#listen">Find us on Spotify ↗</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Real conversations. Brighter days.</div>
+          <h1>Let's talk about what <em>matters.</em></h1>
+          <p>PED-Talk creates room for honest conversations about relationships, family, friendship, faith and the everyday choices that shape who we become.</p>
+          <div class="hero-actions"><a class="button" href="#episodes">Explore episodes <span>↓</span></a><a class="button outline" href="#about">Meet PED-Talk</a></div>
+          <div class="hero-note">A podcast from Anagkazo Media · Made for real life</div>
+        </div>
+        <div class="art-card" aria-label="PED-Talk podcast artwork">
+          <div class="art-top"><span>Anagkazo Media presents</span><span>01 / Listen</span></div>
+          <div>
+            <div class="sound-bars" aria-hidden="true"><span style="--h:22px"></span><span style="--h:47px"></span><span style="--h:74px"></span><span style="--h:39px"></span><span style="--h:100px"></span><span style="--h:57px"></span><span style="--h:82px"></span><span style="--h:34px"></span><span style="--h:65px"></span><span style="--h:25px"></span><span style="--h:50px"></span><span style="--h:89px"></span><span style="--h:42px"></span><span style="--h:70px"></span><span style="--h:29px"></span></div>
+            <div class="art-title">PED<span>-</span><br>TALK.</div>
+          </div>
+          <div class="art-bottom"><span>Personal Education Daily</span><span class="circle-mark">↗</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="episodes" id="episodes">
+      <div class="wrap">
+        <div class="section-head"><div><div class="kicker">Tune in</div><h2>Conversations worth<br>coming back to.</h2></div><p>Thoughtful conversations, practical lessons and fresh perspectives for the things that matter in everyday life.</p></div>
+        <div class="episode-grid">
+          <article class="episode"><div class="episode-cover"><span class="ep-label">PED-Talk · Featured</span><div class="ep-big">BIGGER<br>TOGETHER.</div></div><div class="episode-body"><h3>Bigger Together</h3><p>A conversation about connection, collaboration and growing with the people around us.</p><a class="text-link spotify-link" href="#listen">Listen on Spotify <span>↗</span></a></div></article>
+          <article class="episode"><div class="episode-cover alt"><span class="ep-label">PED-Talk · Conversation</span><div class="ep-big">OUR NEW<br>PARTNER.</div></div><div class="episode-body"><h3>Our New Partner</h3><p>A special conversation featuring Isaac Amoateng.</p><a class="text-link spotify-link" href="#listen">Listen on Spotify <span>↗</span></a></div></article>
+          <article class="episode"><div class="episode-cover light"><span class="ep-label">PED-Talk · Discussion</span><div class="ep-big">ANGELS CAN'T<br>PREACH?</div></div><div class="episode-body"><h3>Angels Can't Preach the Gospel</h3><p>A discussion that invites you to think deeper and explore the message.</p><a class="text-link spotify-link" href="#listen">Listen on Spotify <span>↗</span></a></div></article>
+        </div>
+        <div class="notice">Episode links are connected to the official PED-Talk Spotify show. Review the featured episode titles and descriptions against your published catalogue before launch.</div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap about-grid">
+        <div class="about-panel"><div class="big-quote">“</div><p>Honest conversations can help us see a brighter day.</p><small>PED-Talk · Anagkazo Media</small></div>
+        <div class="about-copy"><div class="kicker">Who we are</div><h2>More than a podcast.<br>A place to grow.</h2><p>PED-Talk — Personal Education Daily — is built around the idea that the conversations we have can shape the lives we lead. We create content that encourages reflection, stronger relationships and a brighter outlook on life.</p><p>As part of the Anagkazo Media vision, PED-Talk is a starting point for meaningful, people-centred media.</p><a class="text-link" href="#listen">Join the conversation <span>→</span></a></div>
+      </div>
+    </section>
+
+    <section id="themes" style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head"><div><div class="kicker">What we talk about</div><h2>Real life. Real growth.</h2></div><p>We explore the people, choices and values that help us grow into better versions of ourselves.</p></div>
+        <div class="pill-row"><span class="pill">Relationships</span><span class="pill">Family</span><span class="pill">Friends</span><span class="pill">Faith</span><span class="pill">Personal growth</span><span class="pill">Youth & education</span></div>
+      </div>
+    </section>
+
+    <section class="listen" id="listen">
+      <div class="wrap listen-box">
+        <div><div class="eyebrow">Your next listen starts here</div><h2>Take the conversation<br>with you.</h2><p>Listen to PED-Talk on Spotify and follow the show so you can catch new conversations as they arrive.</p></div>
+        <a class="button" id="spotifyButton" href="https://open.spotify.com/" target="_blank" rel="noopener">Open Spotify ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-row"><div class="brand"><span class="brand-mark">P</span><span>PED-Talk<small>by Anagkazo Media</small></span></div><div class="footer-links"><a href="#episodes">Episodes</a><a href="#about">About</a><a id="footerSpotify" href="https://open.spotify.com/" target="_blank" rel="noopener">Spotify ↗</a></div></div>
+      <p class="tiny">© <span id="year"></span> Anagkazo Media. All rights reserved. Built for brighter days.</p>
+    </div>
+  </footer>
+  <script>
+    // BEFORE PUBLISHING: replace this with the official PED-Talk Spotify show URL.
+    // Example format: https://open.spotify.com/show/your-show-id
+    const SPOTIFY_SHOW_URL = "https://open.spotify.com/show/4HGHM4uZb0YqzZa4VoTEIP";
+    document.getElementById("spotifyButton").href = SPOTIFY_SHOW_URL;
+    document.getElementById("footerSpotify").href = SPOTIFY_SHOW_URL;
+    document.querySelectorAll(".spotify-link").forEach(link => link.href = SPOTIFY_SHOW_URL);
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+    menuBtn.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(isOpen));
+      menuBtn.textContent = isOpen ? "✕" : "☰";
+    });
+    navLinks.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.textContent = "☰";
+    }));
+  </script>
+</body>
+</html>
