@@ -7,6 +7,23 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="PED-Talk">
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "146221f5-ec50-4574-b973-95525b9bd2d4",
+      safari_web_id: "web.onesignal.auto.571cab93-0309-4674-850d-02fe7b657956",
+      serviceWorkerPath: "/PED-Talk-Website/OneSignalSDKWorker.js",
+      serviceWorkerParam: {
+        scope: "/PED-Talk-Website/"
+      },
+      notifyButton: {
+        enable: true
+      }
+    });
+  });
+</script>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
