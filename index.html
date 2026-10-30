@@ -60,9 +60,12 @@ header{
 .nav{height:76px;display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:20px}
 .brand-mark{
- width:42px;height:42px;border-radius:13px;
- display:grid;place-items:center;background:var(--lime);
- color:var(--bg);font-size:22px;font-weight:950
+ width:42px;
+ height:42px;
+ border-radius:10px;
+ object-fit:contain;
+ display:block;
+ flex-shrink:0;
 }
 .brand small{display:block;font-size:10px;letter-spacing:2px;color:var(--muted)}
 nav{display:flex;gap:25px;color:#dce5dc;font-size:14px}
@@ -193,7 +196,9 @@ footer p{color:var(--muted);font-size:12px}
 <header>
  <div class="wrap nav">
   <a class="brand" href="#home">
-   <span class="brand-mark">P</span>
+   <img class="brand-mark"
+src="/PED-Talk-Website/icons/ped-talk-icon-512.png"
+alt="PED-Talk Logo">
    <span>PED-Talk<small>BY ANAGKAZO MEDIA</small></span>
   </a>
   <button class="menu" id="menuBtn">☰</button>
@@ -321,7 +326,9 @@ footer p{color:var(--muted);font-size:12px}
  <div class="wrap">
   <div class="footer-row">
    <div class="brand">
-    <span class="brand-mark">P</span>
+   <img class="brand-mark"
+src="/PED-Talk-Website/icons/ped-talk-icon-512.png"
+alt="PED-Talk Logo">
     <span>PED-Talk<small>BY ANAGKAZO MEDIA</small></span>
    </div>
    <a href="https://open.spotify.com/show/4HGHM4uZb0YqzZa4VoTEIP" target="_blank" rel="noopener">Spotify ↗</a>
