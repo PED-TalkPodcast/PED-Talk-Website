@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b241a">
+  <meta name="description" content="Listen to a PED-Talk episode by Anagkazo Media.">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icons/ped-talk-icon.svg" type="image/svg+xml">
+  <title>PED-Talk Episode | Anagkazo Media</title>
+  <style>
+    :root{--ink:#0b241a;--green:#2e6845;--lime:#c8e78e;--paper:#f5f3ec;--white:#fffdf8;--muted:#a9bcae;--line:rgba(255,255,255,.16)}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}.wrap{width:min(1080px,calc(100% - 32px));margin:auto}
+    header{background:var(--ink);color:var(--white);border-bottom:1px solid var(--line)}.nav{min-height:74px;display:flex;justify-content:space-between;align-items:center;gap:20px}.brand{display:flex;align-items:center;gap:11px;font-weight:900}.brand img{width:38px;height:38px;border-radius:10px}.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:.18em}.back{color:var(--lime);font-size:13px;font-weight:800}.page{padding:66px 0 90px}.episode{display:grid;grid-template-columns:minmax(260px,.72fr) minmax(0,1.28fr);gap:54px;align-items:center}.art{padding:20px;border-radius:25px;background:linear-gradient(145deg,#3b7950,#173d2a);box-shadow:0 24px 60px rgba(11,36,26,.18)}.art img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:15px}.eyebrow{color:var(--green);font-size:11px;font-weight:900;letter-spacing:.2em;text-transform:uppercase}.meta{margin-top:17px;color:var(--green);font-size:11px;font-weight:850;letter-spacing:.13em;text-transform:uppercase}.content h1{max-width:680px;margin:10px 0 20px;font-size:clamp(42px,7vw,76px);line-height:.96;letter-spacing:-.075em}.content p{max-width:650px;color:#52695b;font-size:17px}.content audio{width:100%;margin:22px 0 12px;accent-color:var(--green)}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:21px}.button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border-radius:999px;background:var(--ink);color:var(--white);font-size:13px;font-weight:800}.button.alt{background:transparent;border:1px solid rgba(11,36,26,.24);color:var(--ink)}.date{color:#789083;font-size:12px}.error{padding:70px 0;text-align:center}.error h1{font-size:42px;letter-spacing:-.06em}@media(max-width:700px){.nav{min-height:66px}.page{padding:45px 0 70px}.episode{grid-template-columns:1fr;gap:30px}.art{max-width:470px;margin:auto}.content h1{font-size:50px}.content p{font-size:16px}}
+  </style>
+</head>
+<body>
+  <header><div class="wrap nav"><a class="brand" href="./"><img src="./icons/ped-talk-icon-512.png" alt=""><span>PED-Talk<small>BY ANAGKAZO MEDIA</small></span></a><a class="back" href="./#episodes">← All episodes</a></div></header>
+  <main class="page"><div class="wrap" id="app"><p>Loading episode...</p></div></main>
+  <script>
+    const base = "./";
+    const app = document.getElementById("app");
+    function clean(value){const el=document.createElement("div");el.innerHTML=value||"";return (el.textContent||"").trim();}
+    function player(episode){const audio=document.createElement("audio");audio.controls=true;audio.preload="none";audio.src=episode.audio;audio.setAttribute("aria-label",`Play ${episode.title||"PED-Talk episode"}`);return audio;}
+    function render(episode,index,total){
+      document.title=`${episode.title||"PED-Talk Episode"} | PED-Talk`;
+      const number=String(episode.title||"").match(/S\d+E(\d+)/i)?.[1]||String(total-index).padStart(2,"0");
+      const published=episode.published?new Date(episode.published).toLocaleDateString(undefined,{day:"numeric",month:"long",year:"numeric"}):"";
+      app.innerHTML=`<article class="episode"><div class="art">${episode.image?`<img src="${episode.image}" alt="${episode.title||"PED-Talk"} episode artwork">`:""}</div><div class="content"><div class="eyebrow">PED-Talk · Episode ${number}</div><h1>${episode.title||"PED-Talk Episode"}</h1><div class="date">${published}</div><p>${clean(episode.description)||"A meaningful conversation from PED-Talk."}</p><div id="audio"></div><div class="actions"><a class="button" href="${episode.link||base+"#episodes"}" target="_blank" rel="noopener">Open on Spotify ↗</a><a class="button alt" href="${base}#episodes">Browse the library</a></div></div></article>`;
+      if(episode.audio)document.getElementById("audio").appendChild(player(episode));
+    }
+    async function load(){try{const index=Number(new URLSearchParams(location.search).get("episode"));const response=await fetch(`${base}episodes.json?v=${Date.now()}`);if(!response.ok)throw Error();const data=await response.json();if(!Number.isInteger(index)||!data.episodes[index])throw Error();render(data.episodes[index],index,data.episodes.length);}catch(e){app.innerHTML='<div class="error"><div class="eyebrow">PED-Talk</div><h1>Episode not found.</h1><p>Return to the library to explore the available conversations.</p><a class="button" href="./#episodes">Back to episodes</a></div>';}}
+    load();
+  </script>
+</body>
+</html>

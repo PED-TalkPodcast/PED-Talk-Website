@@ -1,11 +1,10 @@
-
 {
-  "id": "/PED-Talk-Website/",
+  "id": "./",
   "name": "PED-Talk Podcast",
   "short_name": "PED-Talk",
-  "description": "Real conversations. Brighter days. Discover PED-Talk by Anagkazo Media.",
-  "start_url": "/PED-Talk-Website/",
-  "scope": "/PED-Talk-Website/",
+  "description": "Real conversations. Brighter days. Healing sounds and honest conversations from PED-Talk by Anagkazo Media.",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#08251b",
