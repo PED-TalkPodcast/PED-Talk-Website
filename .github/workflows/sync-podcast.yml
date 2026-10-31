@@ -3,8 +3,12 @@ name: Sync PED-Talk Podcast Episodes
 
 on:
   schedule:
-    - cron: "0 */6 * * *"
+    - cron: "*/15 * * * *"
   workflow_dispatch:
+
+concurrency:
+  group: sync-podcast
+  cancel-in-progress: true
 
 permissions:
   contents: write
